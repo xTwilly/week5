@@ -39,7 +39,7 @@ public class fruitHelper {
 	public void deleteItem(fruit toDelete) {
 		EntityManager em = emfactory.createEntityManager();
 		em.getTransaction().begin();
-		TypedQuery<fruit> typedQuery = em.createQuery("select li from fruit where li.store = :selectedStore and li.item = :selectedItem", fruit.class);
+		TypedQuery<fruit> typedQuery = em.createQuery("select li from fruit li where li.store = :selectedStore and li.item = :selectedItem", fruit.class);
 		
 		//substitute parameter with actual data from the toDelete item
 		typedQuery.setParameter("selectedStore", toDelete.getStore());
